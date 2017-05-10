@@ -136,6 +136,11 @@ Bugs
  <li>rshell throws out an logic error code if user enters a single command 
  (ex: echo hello) and ends it with an "||" or "&&".  Does not occure in the
  case of ending a command with a ";"</li>
+ <li>we are unable to implement perror() for our execvp system call.  When it 
+ was implemented perror("execvp failed") would cause it to output "exevcp
+ failed: Success" to the terminal.  As a result we implement our own version
+ of perror that will notify the user when a execvp has failed to run.  Our
+ version outputs "bash: -command-: command not found" to the terminal.</li>
  
 <li>The code was tested on the following commands:
 <ul>
