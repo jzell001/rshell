@@ -133,7 +133,9 @@ Bugs
  <li>When tested using scripts an extra dollar sign ($) is printed
  to the terminal.  This does not occur if the program is run normally with a 
  user manually entering the input instead of through the use of scripts.</li>
-
+ <li>rshell throws out an logic error code if user enters a single command 
+ (ex: echo hello) and ends it with an "||" or "&&".  Does not occure in the
+ case of ending a command with a ";"</li>
  
 <li>The code was tested on the following commands:
 <ul>
@@ -143,5 +145,5 @@ Bugs
 <li>rm</li>
 <li>rmdir</li>
 </ul>
-<li/>
+</li>
 </ul>
