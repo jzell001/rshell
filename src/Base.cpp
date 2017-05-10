@@ -199,11 +199,11 @@ void Cmd::execute() {
         
         string commandName = argm[0];
         execvp(argm[0], argm);
-        // int errCode = errno;
+        int errCode = errno;
         
         cout << "bash: " << commandName << ": command not found" << endl;
         
-        // exit(errCode);
+        exit(errCode);
         exit(EXIT_SUCCESS);
     } 
     // parent process.
@@ -225,7 +225,7 @@ void Cmd::execute() {
             // Program failed
             else { 
                 setCheck(false);
-                perror("execvp failed");
+                // perror("execvp failed");
             }
         }
             
