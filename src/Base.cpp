@@ -199,18 +199,24 @@ void Cmd::execute() {
         
         string commandName = argm[0];
         execvp(argm[0], argm);
-        int errCode = errno;
+        // int errCode = errno;
         
         cout << "bash: " << commandName << ": command not found" << endl;
         
-        exit(errCode);
+        // exit(errCode);
+        exit(EXIT_SUCCESS);
     } 
     // parent process.
     else if(pid > 0) { 
         
         // Wait for the child process to exit
         // below is same as waitpid(-1, &status, 0);
-        wait(&returnStatus);
+        // wait(&returnStatus);
+        
+        if ((pid = wait(&returnStatus)) == -1) {
+           perror("wait error");
+        }
+        else {
             
             // Program succeeded
             if ((WIFEXITED(returnStatus)) && (WEXITSTATUS(returnStatus) == 0)) {
@@ -219,11 +225,14 @@ void Cmd::execute() {
             // Program failed
             else { 
                 setCheck(false);
+                perror("execvp failed");
             }
+        }
             
     } 
     // Error with fork() calls
     else {
+        perror("fork call failed");
         cout << "There was an error with the fork() sys() call." << endl;
         exit(EXIT_FAILURE); 
     } 
