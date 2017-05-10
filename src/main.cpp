@@ -56,6 +56,8 @@ int main() {
             input.erase(input.begin() + poundSignIndex, input.end()); 
             //cout << "reformatted input: " << input << endl;
         }
+        
+        
            
         //parse(input);
         if(input != "") {
