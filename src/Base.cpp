@@ -221,6 +221,8 @@ void Parse::processText() {
         }
     }
     
+    // test comment
+    
     //create temp string for further processing
     string pLimitedUserInput(limitedUserInput);
     
