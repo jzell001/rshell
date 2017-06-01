@@ -151,6 +151,12 @@ Bugs
 </h2>
 
 <ul>
+<li>The code runs the test command perfectly in Cloud9, accessing every path
+that it is asked and returning true for valid paths. However, there seems to
+be a slight glitch when run in hammer. The first time a path is run, it often
+returns false for a true path on the first attempt. Then each subsequent 
+attempt, it correctly returns true. We are not sure whey this would be the
+case, since it is implementing it correctly in Cloud9 environment.</li>
 <li>The array of command and arguments used in the tokenize function is hard 
  coded to be of lenght 1024, and is not dynamically allocated. This was 
  done with the idea that the user will most likely not need an array of 
