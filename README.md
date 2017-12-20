@@ -1,40 +1,12 @@
 <h1>
-<p>CS100</p>
-<p>Assignment 4</p>
-<p>Jason Zellmer</p>
-<p>Duran Hughes</p>
+Creating Shell Commands
 </h1>
 
-<h2>
-----------------------
-Files
-----------------------
-</h2>
-
-<ul>
-<li>main.cpp</li>
-<li>Base.cpp</li>
-<li>Base.h</li>
-<li>makefile</li>
-</ul>
 
 <h2>
-----------------------
-Command Line Arguments
-----------------------
-</h2>
-g++ main.cpp Base.cpp
-<ol>
-<li>cd rshell</li>
-<li>make clean; make</li>
-<li>cd bin</li>
-<li>./rshell</li>
-</ol>
-
-<h2>
-----------------------
-Summary / Intro
-----------------------
+------------------------------------------<br />
+Description <br />
+------------------------------------------<br />
 </h2>
 
 When executed, this program simulate the basic commands of the bash terminal 
@@ -50,10 +22,40 @@ fashion.
 To exit the terminal, the user simply types 'exit' to revert back to the main
 terminal.
     
+
+
 <h2>
--------------------------
-Class Specific Details
--------------------------
+------------------------------------------<br />
+Files<br />
+------------------------------------------<br />
+</h2>
+
+<ul>
+<li>main.cpp</li>
+<li>Base.cpp</li>
+<li>Base.h</li>
+<li>makefile</li>
+</ul>
+
+<h2>
+------------------------------------------<br />
+Command Line Arguments <br />
+------------------------------------------<br />
+</h2>
+
+g++ main.cpp Base.cpp
+<ol>
+<li>cd rshell</li>
+<li>make clean; make</li>
+<li>cd bin</li>
+<li>./rshell</li>
+</ol>
+
+
+<h2>
+------------------------------------------<br />
+Class Specific Details <br />
+------------------------------------------<br />
 </h2>
 
 There are multiple classes that are implemented in this program, a base class 
@@ -176,41 +178,3 @@ does not exist.
 
 
 
-<h2>
--------------------------
-Bugs
--------------------------
-</h2>
-
-<ul>
-
-<li>There was an issue at some point with the two redirection commands '>' and 
-'>>' not talking to each other. It seems to be fixed now, but just the issue 
-was, if a file was created using the '>' command, then trying to append
-to that file using the '>>' command would result in creating a new file by the 
-same name. If a file was created using the 'touch' command, it could be appended
-using the '>>' command correctly. However, if the '>' command was then called
-on the same file, a new file would be created with the same name. Again, this
-issue seems to be resolved, but was an issue prior final modifications.</li>
-From Assignment 3 and prior:
-<li>There is still an issue running the 'test' commands as we were not able 
-to correct it from Assignment 3, so any commands using 'test' may not perform
-correctly</li>
-From Assignment 2 and prior:
-<li>The array of command and arguments used in the tokenize function is hard 
- coded to be of lenght 1024, and is not dynamically allocated. This was 
- done with the idea that the user will most likely not need an array of 
- command and arguments longer than 1024 elements.</li>
- <li>When tested using scripts an extra dollar sign ($) is printed
- to the terminal.  This does not occur if the program is run normally with a 
- user manually entering the input instead of through the use of scripts.</li>
- <li>rshell throws out an logic error code if user enters a single command 
- (ex: echo hello) and ends it with an "||" or "&&".  Does not occure in the
- case of ending a command with a ";"</li>
- <li>we are unable to implement perror() for our execvp system call.  When it 
- was implemented perror("execvp failed") would cause it to output "exevcp
- failed: Success" to the terminal.  As a result we implement our own version
- of perror that will notify the user when a execvp has failed to run.  Our
- version outputs "bash: -command-: command not found" to the terminal.</li>
- 
-</ul>
